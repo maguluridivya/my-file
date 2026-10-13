@@ -18,12 +18,12 @@ def item_cost(item,qty):
 
     
 def calculate_gst(amount, rate=0.05):
-    GST= amount *  0.05  
+    GST=amount *  0.05 
     return round( GST,2)
 
 
 def generate_bill(subtotal, discount_percent=0):
-    discount = subtotal * discount_percent
+    discount = subtotal * discount_percent/100
     amount_after_discount = subtotal-discount
     gst = calculate_gst(amount_after_discount)
     total =amount_after_discount+gst
@@ -45,7 +45,7 @@ subtotal2=item_cost("cofee",3)
 discount1, gst1, total1 =generate_bill(subtotal1,0.10)
 each, extra = split_bill(total1,3)
 discount2,gst2,total2=generate_bill(subtotal2,0.10)
-each,extra=split_bill(total2+total1,3)
+each,extra=split_bill(total1+total2,3)
 
 
 print("Subtotal of dosa  :", subtotal1)
@@ -58,5 +58,5 @@ print("subtotal2:",subtotal2)
 print("discount:",discount2)
 print("gst:",gst2)
 print("total:",total2)
-print("Each pays:", each, "| Left over", extra)
+print("Each pays:{each:2f}", "| Left over", extra)
 #regular code to write regular code like total marks

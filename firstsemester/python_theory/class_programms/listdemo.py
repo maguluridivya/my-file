@@ -3,8 +3,7 @@ mymarks=[]#dynaamically  intitaliztion[intialized during execution]
 for i in range(1,6):
     newmark=int(input("enter the marks:"))
 
-    mymarks.append(newmark)#newmark value will be added to mymarks through the appendbuilt in list metho
+    mymarks.append(newmark) #newmark value will be added to mymarks through the appendbuilt in list metho
 print("the list elements are")
 for i in range(len(mymarks)):
-    print(mymarks[i]) 
-    
+    print(mymarks[i])
