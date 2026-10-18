@@ -1,6 +1,7 @@
 # process a single students data 1.rolno,name,emailid,phoneno,5 subject marks,get the subject total
 #implemented using nested list
 student_data=[]
+marks=[]
 
 n=int(input("enter the number of studnets"))
  
@@ -11,9 +12,17 @@ def read_data():
         name=input("enter your name")
         email=input("enter your email")
         phone=int(input("enter the phone no"))
-        marks=[]
-        marks.append(int(input("enter the marks")))
+        
+        marks=int(input("enter the marks"))
         student_data.append([roll_no,name,email,phone,marks])
         submarks.append(marks)
         print("student data=",student_data)
+    return marks
+def total(marks):
+    total=0
+    for marks in student_data:
+        total=total+marks[4]
+        print("the total is:",total)
+    return total
 read_data()
+total=total(marks)
