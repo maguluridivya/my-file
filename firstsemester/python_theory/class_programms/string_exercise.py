@@ -20,20 +20,21 @@ phone=+91-98765-43210
 
 """
 
-name,email,phone=raw_data.split("\n")[1],raw_data.split("\n")[2],raw_data.split("\n")[3]
-print(name.strip().title().replace("  "," "))
-print(email.lower())
-print(phone.replace("-","").repalce("+91987654","*****"))
-first,last=name.split()[0],name.split()[1]
-initials=first[0].upper()+last[0].upper()
-print(" domain:comapny.com")
-if len(phone)==12:
-    print("valid:true")
-
  
-
-
-
-
-first,last=name.split()[0],name.split()[1]
-initials=first[0].upper()+last[0].upper()
+lines=raw_data.strip().splitlines()
+name=lines[0].strip()
+email=lines[1].strip()
+phone=lines[2].strip()
+name="".join(name.split()).title()
+initials="".join(word[0]+word[6] for word in name.split()).upper()
+email=email.lower()
+domain=email.split("@")[1]
+phone_digits="".join(char for char in phone if char.isdigit() )
+valid=(phone_digits.startswith("91")and len(phone_digits)==12)
+maskedphone="* "*(len(phone_digits)-4)+phone_digits[-4:]
+print("Name:",name)
+print("initials:",initials)
+print("email:",email)
+print("domain:",domain)
+print("phone:",maskedphone)
+print("valid:",valid)
