@@ -1,29 +1,39 @@
 
 regularprice=500
-price=0
+
 
 
 day=input("enter the day:")
 show_timing=input("enter the timing:")
 age=int(input("enter the age"))
 if  day== "monday" "tuesday" "wenesday" "thursday" "friday" :
-    price =  regularprice 
-    print("the price is:",price)
+    ticketprice =  regularprice 
     
-elif  day!= "monday" "tuesday" "wednesday" "thursday" "friday"   :
-    price=regularprice+200
-    print("the price:",price)
+else:
 
-elif show_timing =="morning" :
-    totalprice = price +100
-    print("the price is:",totalprice)
+    ticketprice=regularprice+(regularprice*0.25)
+print("the ticketprice:",ticketprice)
+
+if show_timing =="morning" :
+    price = regularprice
+    print("the price is:",price)
+elif show_timing=="afternoon":
+    price=ticketprice+(regularprice*0.10)
+else:
+    price=ticketprice+(regularprice*0.30)
 
 
-else :
-   price =regularprice*25/100+300
-   print("the price is:",price)
+print("the price is:",price)
+if age<=5:
+    discount=0.50
+elif age<=59 or age>5:
+    discount=0.0
+elif age>=60:
+    discount=0.10
 
 
+finalprice=price-(regularprice*discount)
+print("final price:",finalprice)
     
 
 
